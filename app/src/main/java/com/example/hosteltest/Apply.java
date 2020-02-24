@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class Apply extends AppCompatActivity {
 
     private Button btnSubmit;
-    EditText name,phone,roll, cast,gmark;
+    EditText name,phone,roll, cast, acpcrank;
     Spinner citySpinner;
     Student student;
     DatabaseReference reff;
@@ -33,7 +33,7 @@ public class Apply extends AppCompatActivity {
         phone = (EditText) findViewById(R.id.phoneNumber);
         roll = (EditText) findViewById(R.id.rollNumber);
         cast = (EditText) findViewById(R.id.cast);
-        gmark = (EditText) findViewById(R.id.gujcetMark);
+        acpcrank = (EditText) findViewById(R.id.acpcrank);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         citySpinner = (Spinner) findViewById(R.id.citySpinner);
         student = new Student();
@@ -59,14 +59,11 @@ public class Apply extends AppCompatActivity {
                 student.setName(name.getText().toString().trim());
                 student.setPhone(phone.getText().toString().trim());
                 student.setRoll(roll.getText().toString().trim());
-                student.setGmark(gmark.getText().toString().trim());
+                student.setAcpcrank(acpcrank.getText().toString().trim());
                 student.setCast(cast.getText().toString().trim());
                 student.setCity(citySpinner.getSelectedItem().toString().trim());
                 student.setStatus(false);
-                float gm = Float.parseFloat(gmark.getText().toString());
-                gm = gm*100;
-                int ip = (int)gm;
-                reff.child(String.valueOf(ip)+" "+(student.id)).setValue(student);
+                reff.child(String.valueOf(acpcrank.getText().toString())+" "+(student.id)).setValue(student);
                 Toast.makeText(Apply.this,"SUCCESS",Toast.LENGTH_LONG).show();
             }
         });

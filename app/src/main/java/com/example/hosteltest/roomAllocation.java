@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 public class roomAllocation extends AppCompatActivity {
 
     DatabaseReference reff3;
-
+    DatabaseReference reff4;
     int j=0;
     int id=0;
     Button allocateRoom;
@@ -28,6 +28,7 @@ public class roomAllocation extends AppCompatActivity {
         setContentView(R.layout.activity_room_allocation);
         rm = new Room();
         allocateRoom = (Button)findViewById(R.id.allocateRoom);
+        reff4 = FirebaseDatabase.getInstance().getReference("Room");
         reff3 = FirebaseDatabase.getInstance().getReference("Student");
         reff3.addValueEventListener(new ValueEventListener() {
             @Override
@@ -42,11 +43,9 @@ public class roomAllocation extends AppCompatActivity {
                         j++;
                     }
                 }
-
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         allocateRoom.setOnClickListener(new View.OnClickListener() {
@@ -57,17 +56,24 @@ public class roomAllocation extends AppCompatActivity {
                 while(l < j) {
                     for(int k=0;k<3;k++){
                         stu2[l].room = i;
-                        float gm = Float.parseFloat(stu2[l].gmark);
-                        gm = gm*100;
-                        int ip = (int)gm;
-                        reff3.child(String.valueOf(ip)+" "+(stu2[l].id)).child("room").setValue(stu2[l].room);
+                        reff3.child(String.valueOf(stu2[l].acpcrank)+" "+(stu2[l].id)).child("room").setValue(stu2[l].room);
+                        if(k == 0){
+                            reff4.child(String.valueOf(i)).child("stu1").setValue(stu2[l].name);
+                        }
+                        else if(k == 1){
+                            reff4.child(String.valueOf(i)).child("stu2").setValue(stu2[l].name);
+                        }
+                        else if(k == 2){
+                            reff4.child(String.valueOf(i)).child("stu3").setValue(stu2[l].name);
+                        }
+                        else{}
                         l++;
                     }
                     i++;
                 }
             }
         });
-        /*//To add Room in database
+        /* //To add Room in database
         reff4.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

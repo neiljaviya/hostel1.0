@@ -40,7 +40,7 @@ public class verifiedReq extends AppCompatActivity {
                 }
                 for(int k=j-1;k>=0;k--){
                     if(stu1[k].status == true) {
-                        arrayList2.add(stu1[k].getName()+"\n"+stu1[k].getGmark()+"\n"+stu1[k].getCity());
+                        arrayList2.add(stu1[k].getName()+"\n"+stu1[k].getAcpcrank()+"\n"+stu1[k].getCity());
                     }
                 }
                 lw2.setAdapter(adpt2);

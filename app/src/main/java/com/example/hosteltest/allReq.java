@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.EventListener;
 
 public class allReq extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class allReq extends AppCompatActivity {
                 }
                 for(int k=j-1;k>=0;k--){
 
-                    arrayList.add(stu[k].getName()+"\n"+stu[k].getGmark()+"\n"+stu[k].getCity());
+                    arrayList.add(stu[k].getName()+"\n"+stu[k].getAcpcrank()+"\n"+stu[k].getCity());
                 }
                 lw.setAdapter(adpt);
             }

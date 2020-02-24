@@ -26,9 +26,17 @@ public class sortedStudent extends AppCompatActivity {
     ListView lw;
     int j=0,i=0;
     int c=0,t=0,ob=0,op=0;
-    Student[] stud = new Student[100];
-    Student[] sort = new Student[100];
+    Student[] stud = new Student[110];
+    Student[] sort = new Student[110];
+
     @Override
+    public void onBackPressed() {
+        Intent i1 = new Intent(this,adminMain.class);
+        startActivity(i1);
+    }
+
+    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_allocation);
@@ -48,30 +56,30 @@ public class sortedStudent extends AppCompatActivity {
                 }
                 for(int k=j-1;k>=0;k--)
                 {
-                    if((stud[k].getCast()).contentEquals("sc") && c<3)
+                    if((stud[k].getCast()).contentEquals("sc") && c<15)
                     {
                         sort[i]=stud[k];
-                        arrayList.add(sort[i].getName()+"\n"+sort[i].getGmark()+"\n"+"SC");
+                        arrayList.add(sort[i].getName()+"\n"+sort[i].getAcpcrank()+"\n"+"SC");
                         c++;
                         i++;
                     }
-                    else if((stud[k].getCast()).contentEquals("st") && t<3)
+                    else if((stud[k].getCast()).contentEquals("st") && t<7)
                     {
                         sort[i] = stud[k];
-                        arrayList.add(sort[i].getName()+"\n"+sort[i].getGmark()+"\n"+"ST");
+                        arrayList.add(sort[i].getName()+"\n"+sort[i].getAcpcrank()+"\n"+"ST");
                         t++;
                         i++;
                     }
-                    else if((stud[k].getCast()).contentEquals("obc") && ob<2)
+                    else if((stud[k].getCast()).contentEquals("obc") && ob<27)
                     {
                         sort[i] = stud[k];
-                        arrayList.add(sort[i].getName()+"\n"+sort[i].getGmark()+"\n"+"OBC");
+                        arrayList.add(sort[i].getName()+"\n"+sort[i].getAcpcrank()+"\n"+"OBC");
                         ob++;
                         i++;
                     }
-                    else if(((stud[k].getCast()).contentEquals("sc")||(stud[k].getCast()).contentEquals("st") ||(stud[k].getCast()).contentEquals("obc") ||(stud[k].getCast()).contentEquals("open") )&&op<=7)                    {
+                    else if(((stud[k].getCast()).contentEquals("sc")||(stud[k].getCast()).contentEquals("st") ||(stud[k].getCast()).contentEquals("obc") ||(stud[k].getCast()).contentEquals("open") )&&op<=51)                    {
                         sort[i] = stud[k];
-                        arrayList.add(sort[i].getName()+"\n"+sort[i].getGmark()+"\n"+sort[i].getCast());
+                        arrayList.add(sort[i].getName()+"\n"+sort[i].getAcpcrank()+"\n"+sort[i].getCast());
                         op++;
                         i++;
                     }
@@ -92,7 +100,7 @@ public class sortedStudent extends AppCompatActivity {
                     temp.name = sort[position].name;
                     temp.city = sort[position].city;
                     temp.cast = sort[position].cast;
-                    temp.gmark = sort[position].gmark;
+                    temp.acpcrank = sort[position].acpcrank;
                     temp.phone = sort[position].phone;
                     temp.status = sort[position].status;
                     temp.id = sort[position].id;
@@ -101,7 +109,7 @@ public class sortedStudent extends AppCompatActivity {
                     in.putExtra("value1",temp.name);
                     in.putExtra("value2",temp.city);
                     in.putExtra("value3",temp.cast);
-                    in.putExtra("value4",temp.gmark);
+                    in.putExtra("value4",temp.acpcrank);
                     in.putExtra("value5",temp.phone);
                     in.putExtra("value6",temp.id);
                     in.putExtra("value7",temp.roll);
@@ -126,13 +134,13 @@ public class sortedStudent extends AppCompatActivity {
                     String city = value.getCity();
                     String phone = value.getPhone();
                     String roll = value.getRoll();
-                    String gmark = value.getGmark();
+                    String acpcrank = value.getAcpcrank();
                     String cast = value.getCast();
                     Boolean stat = value.isStatus();
                     student[j] = value;
                     if(stat == false)
                     {
-                        arrayList.add(student[j].getName()+"\n"+student[j].getPhone()+"\n"+student[j].getGmark());
+                        arrayList.add(student[j].getName()+"\n"+student[j].getPhone()+"\n"+student[j].getAcpcrank());
                     }
                     j++;
                 }

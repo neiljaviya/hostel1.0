@@ -6,7 +6,7 @@ public class Student {
     public String phone;
     public String roll;
     public String cast;
-    public String gmark;
+    public String acpcrank;
     public String city;
     public int id;
     public int room;
@@ -54,12 +54,12 @@ public class Student {
         this.cast = cast;
     }
 
-    public String getGmark() {
-        return gmark;
+    public String getAcpcrank() {
+        return acpcrank;
     }
 
-    public void setGmark(String gmark) {
-        this.gmark = gmark;
+    public void setAcpcrank(String acpcrank) {
+        this.acpcrank = acpcrank;
     }
 
     public String getCity() {

@@ -36,8 +36,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="GUJCET Marks"
-            android:id="@+id/gujcetMark"/>
+            android:hint="Enter ACPC rank"
+            android:id="@+id/acpcrank"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
