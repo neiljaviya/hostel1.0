@@ -1,25 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:context=".MainActivity">
 
-    <include
-        layout="@layout/app_bar_main"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</androidx.drawerlayout.widget.DrawerLayout>
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:src="@drawable/ic_launcher_background"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:text="Hostel Management System"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/Gallery"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textSize="12dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_round"
+                android:text="Gallery"
+                tools:ignore="DuplicateIds,Suspicious0dp" />
+
+            <Button
+                android:id="@+id/Fees"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_round"
+                android:textSize="12dp"
+                android:text="Fees" />
+
+            <Button
+                android:id="@+id/Leave"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_round"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="12dp"
+                android:text="Request for Leave"
+                tools:ignore="DuplicateIds,Suspicious0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/Complaint"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_round"
+                android:textSize="12dp"
+                android:text="Add Complaint"
+                tools:ignore="DuplicateIds,Suspicious0dp" />
+
+            <Button
+                android:id="@+id/Feedback"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_round"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textSize="12dp"
+                android:text="Feedback" />
+
+            <Button
+                android:id="@+id/Logout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="12dp"
+                android:text="Logout"
+                android:background="@drawable/button_round"
+                tools:ignore="DuplicateIds,Suspicious0dp" />
+        </LinearLayout>
+
+    </GridLayout>
+</ScrollView>

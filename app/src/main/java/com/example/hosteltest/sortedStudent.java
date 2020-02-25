@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +26,8 @@ public class sortedStudent extends AppCompatActivity {
     DatabaseReference reff;
     ArrayList<String> arrayList;
     ArrayAdapter<String> adpt;
-    ListView lw;
+    ListView lw,lw2;
+    EditText editSrch;
     int j=0,i=0;
     int c=0,t=0,ob=0,op=0;
     Student[] stud = new Student[110];
@@ -39,20 +43,22 @@ public class sortedStudent extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_allocation);
+        setContentView(R.layout.activity_sortedstudent);
 
         reff = FirebaseDatabase.getInstance().getReference("Student");
         lw = (ListView) findViewById(R.id.listview);
         arrayList = new ArrayList<String>();
         adpt = new ArrayAdapter<String>(this,R.layout.list_theme,R.id.stuinfo,arrayList);
+        //adpt2 = new ArrayAdapter<String>(this,R.layout.list_theme,R.id.stuinfo,arrayList);
+        editSrch = (EditText)findViewById(R.id.editSrch);
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
-                        stud[j] = ds.getValue(Student.class);
-                        j++;
+                    stud[j] = ds.getValue(Student.class);
+                    j++;
                 }
                 for(int k=j-1;k>=0;k--)
                 {
@@ -93,32 +99,49 @@ public class sortedStudent extends AppCompatActivity {
 
             }
         });
+        /*editSrch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Call back the Adapter with current character to Filter
+                adpt.getFilter().filter(s.toString());
+                lw.setAdapter(adpt);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });*/
         lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Student temp = new Student();
-                    temp.name = sort[position].name;
-                    temp.city = sort[position].city;
-                    temp.cast = sort[position].cast;
-                    temp.acpcrank = sort[position].acpcrank;
-                    temp.phone = sort[position].phone;
-                    temp.status = sort[position].status;
-                    temp.id = sort[position].id;
-                    temp.roll = sort[position].roll;
-                    Intent in = new Intent(sortedStudent.this,perStudentInfo.class);
-                    in.putExtra("value1",temp.name);
-                    in.putExtra("value2",temp.city);
-                    in.putExtra("value3",temp.cast);
-                    in.putExtra("value4",temp.acpcrank);
-                    in.putExtra("value5",temp.phone);
-                    in.putExtra("value6",temp.id);
-                    in.putExtra("value7",temp.roll);
-                    startActivity(in);
+                Student temp = new Student();
+                temp.name = sort[position].name;
+                temp.city = sort[position].city;
+                temp.cast = sort[position].cast;
+                temp.acpcrank = sort[position].acpcrank;
+                temp.phone = sort[position].phone;
+                temp.sendemail = sort[position].sendemail;
+                temp.status = sort[position].status;
+                temp.id = sort[position].id;
+                temp.roll = sort[position].roll;
+                Intent in = new Intent(sortedStudent.this,perStudentInfo.class);
+                in.putExtra("value1",temp.name);
+                in.putExtra("value2",temp.city);
+                in.putExtra("value3",temp.cast);
+                in.putExtra("value4",temp.acpcrank);
+                in.putExtra("value5",temp.phone);
+                in.putExtra("value6",temp.id);
+                in.putExtra("value7",temp.roll);
+                in.putExtra("value8",temp.sendemail);
+                in.putExtra("value9",temp.status);
+                startActivity(in);
             }
         });
-
-
-
 
         /*reff.addChildEventListener(new ChildEventListener() {
             @Override

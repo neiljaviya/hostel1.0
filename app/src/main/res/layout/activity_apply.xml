@@ -27,17 +27,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="GUJCET Roll no."
+            android:maxLength="8"
             android:id="@+id/rollNumber"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cast"
-            android:id="@+id/cast"/>
+            android:hint="Enter E-mail"
+            android:inputType="textEmailAddress"
+            android:id="@+id/sendEmail"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Parents E-mail"
+            android:inputType="textEmailAddress"
+            android:id="@+id/parentEmail"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Cast"
+            android:textSize="18sp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/castSpinner"
+            android:prompt="@string/cast_prompt"
+            android:entries="@array/cast_array" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter ACPC rank"
+            android:inputType="number"
+            android:maxLength="7"
             android:id="@+id/acpcrank"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select City"
+            android:textSize="18sp"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

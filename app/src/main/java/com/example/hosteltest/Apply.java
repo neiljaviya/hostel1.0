@@ -19,8 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Apply extends AppCompatActivity {
 
     private Button btnSubmit;
-    EditText name,phone,roll, cast, acpcrank;
-    Spinner citySpinner;
+    EditText name,phone,roll, acpcrank,email,p_email;
+    Spinner citySpinner,castSpinner;
     Student student;
     DatabaseReference reff;
     //long id;
@@ -32,9 +32,11 @@ public class Apply extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name);
         phone = (EditText) findViewById(R.id.phoneNumber);
         roll = (EditText) findViewById(R.id.rollNumber);
-        cast = (EditText) findViewById(R.id.cast);
+        castSpinner = (Spinner) findViewById(R.id.castSpinner);
         acpcrank = (EditText) findViewById(R.id.acpcrank);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        email = (EditText) findViewById(R.id.sendEmail);
+        p_email = (EditText) findViewById(R.id.parentEmail);
         citySpinner = (Spinner) findViewById(R.id.citySpinner);
         student = new Student();
         reff = FirebaseDatabase.getInstance().getReference().child("Student");
@@ -59,8 +61,10 @@ public class Apply extends AppCompatActivity {
                 student.setName(name.getText().toString().trim());
                 student.setPhone(phone.getText().toString().trim());
                 student.setRoll(roll.getText().toString().trim());
+                student.setSendemail(email.getText().toString().trim());
+                student.setParent_email(p_email.getText().toString().trim());
                 student.setAcpcrank(acpcrank.getText().toString().trim());
-                student.setCast(cast.getText().toString().trim());
+                student.setCast(castSpinner.getSelectedItem().toString().toLowerCase().trim());
                 student.setCity(citySpinner.getSelectedItem().toString().trim());
                 student.setStatus(false);
                 reff.child(String.valueOf(acpcrank.getText().toString())+" "+(student.id)).setValue(student);

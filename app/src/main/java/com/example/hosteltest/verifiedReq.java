@@ -27,7 +27,7 @@ public class verifiedReq extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verified_req);
         reff = FirebaseDatabase.getInstance().getReference("Student");
-        lw2 = (ListView) findViewById(R.id.verifiedlistview);
+        lw2 = (ListView) findViewById(R.id.listview);
         arrayList2 = new ArrayList<String>();
         adpt2 = new ArrayAdapter<String>(this,R.layout.verified_list_theme,R.id.verifiedStuInfo,arrayList2);
         reff.addValueEventListener(new ValueEventListener() {

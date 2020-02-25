@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hosteltest.sortedStudent" >
+    tools:context="com.example.hosteltest.Deallocation" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:orientation="vertical" >
 
             <ListView
-                android:id="@+id/listview"
+                android:id="@+id/listview_dealloc"
                 android:layout_width="match_parent"
                 android:layout_height="509dp">
 

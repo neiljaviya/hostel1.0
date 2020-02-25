@@ -63,10 +63,9 @@ public class roomAllocation extends AppCompatActivity {
                         else if(k == 1){
                             reff4.child(String.valueOf(i)).child("stu2").setValue(stu2[l].name);
                         }
-                        else if(k == 2){
+                        else {
                             reff4.child(String.valueOf(i)).child("stu3").setValue(stu2[l].name);
                         }
-                        else{}
                         l++;
                     }
                     i++;

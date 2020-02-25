@@ -11,6 +11,11 @@ public class Student {
     public int id;
     public int room;
     public boolean status;
+    public String sendemail;
+    public String parent_email;
+    private String detail;
+    private String Imageid;
+    private String Spinnertext;
 
 
 
@@ -24,6 +29,22 @@ public class Student {
     }
     public String getName() {
         return name;
+    }
+
+    public String getParent_email() {
+        return parent_email;
+    }
+
+    public void setParent_email(String parent_email) {
+        this.parent_email = parent_email;
+    }
+
+    public String getSendemail() {
+        return sendemail;
+    }
+
+    public void setSendemail(String sendemail) {
+        this.sendemail = sendemail;
     }
 
     public void setName(String name) {
@@ -68,5 +89,29 @@ public class Student {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getSpinnertext() {
+        return Spinnertext;
+    }
+
+    public void setSpinnertext(String spinnertext) {
+        Spinnertext = spinnertext;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getImageid() {
+        return Imageid;
+    }
+
+    public void setImageid(String imageid) {
+        Imageid = imageid;
     }
 }

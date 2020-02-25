@@ -7,7 +7,7 @@
     tools:context=".perStudentInfo">
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/dtv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteX="-16dp" />
 
     <TextView
-        android:id="@+id/tv2"
+        android:id="@+id/dtv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteX="33dp" />
 
     <TextView
-        android:id="@+id/tv3"
+        android:id="@+id/dtv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -37,7 +37,7 @@
         tools:layout_editor_absoluteX="25dp" />
 
     <TextView
-        android:id="@+id/tv4"
+        android:id="@+id/dtv4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -47,7 +47,7 @@
         tools:layout_editor_absoluteX="30dp" />
 
     <TextView
-        android:id="@+id/tv5"
+        android:id="@+id/dtv5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -57,19 +57,7 @@
         tools:layout_editor_absoluteX="53dp" />
 
     <Button
-        android:id="@+id/verifybtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Verify"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv5"
-        app:layout_constraintVertical_bias="0.406" />
-
-    <Button
-        android:id="@+id/discardbtn"
+        android:id="@+id/deallocdiscardbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="discard"
@@ -77,17 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv5"
+        app:layout_constraintTop_toBottomOf="@+id/dtv5"
         app:layout_constraintVertical_bias="0.59" />
-
-    <Button
-        android:id="@+id/sendbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Button"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discardbtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

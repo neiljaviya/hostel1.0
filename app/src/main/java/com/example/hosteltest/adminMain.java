@@ -15,9 +15,12 @@ public class adminMain extends AppCompatActivity {
     private Button areq;
     private Button verifiedbtn;
     private  Button roomallocation;
+    private Button openPortal;
+    private Button deallocation;
+    private Button sendemail;
 
     boolean doubleBackToExitPressedOnce = false;
-
+    Portal p;
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -48,6 +51,16 @@ public class adminMain extends AppCompatActivity {
         slreq = (Button)findViewById(R.id.slreq);
         verifiedbtn = (Button)findViewById(R.id.verifiedbtn);
         roomallocation = (Button)findViewById(R.id.roomallocation);
+        openPortal = (Button)findViewById(R.id.openPortal);
+        deallocation = (Button)findViewById(R.id.deallocation);
+        sendemail = (Button) findViewById(R.id.sendemail);
+        p=new Portal();
+        deallocation.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                openDeallocarion();
+            }
+        });
         slreq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +85,27 @@ public class adminMain extends AppCompatActivity {
                 openRoomAllocation();
             }
         });
+        openPortal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPortalFun();
+            }
+        });
+        sendemail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opensendemail();
+            }
+        });
+
+    }
+    public void openDeallocarion() {
+        Intent i = new Intent(this,Deallocation.class);
+        startActivity(i);
+    }
+    public void openPortalFun(){
+        Intent i = new Intent(this,PortalActivity.class);
+        startActivity(i);
     }
     public void openRoomAllocation(){
         Intent i =new Intent(this,roomAllocation.class);
@@ -88,6 +122,10 @@ public class adminMain extends AppCompatActivity {
     public void openAllocation() {
 
         Intent i = new Intent(this, sortedStudent.class);
+        startActivity(i);
+    }
+    public void opensendemail(){
+        Intent i = new Intent(this,Sendemail.class);
         startActivity(i);
     }
 }
